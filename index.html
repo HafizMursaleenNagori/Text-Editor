@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Editor</title>
+    <style>
+        body{
+            background-color: rgb(170, 216, 253);
+        }
+        div.main{
+            margin-top: 100px;
+        }
+        div.nav{
+            border: 1px solid rgb(73, 76, 127);
+            height: 40px;
+            width: 573px;
+            display: flex;
+        }
+        button{
+            padding: 5px 15px;
+            background-color: rgb(219, 238, 255);
+            border: 1px solid rgb(72, 72, 135);
+            border-bottom: none;
+        }
+        input[type=color], select{
+            height: 40px;
+            background-color: rgb(219, 238, 255);
+            border: 1px solid rgb(72, 72, 126);
+            border-bottom: none;
+        }
+        textarea{
+            height: 300px;
+            width: 44.9%;
+            text-transform: uppercase;
+            border: none;
+            background-color: rgb(219, 238, 255);
+            border: 1.5px solid rgb(73, 76, 127);
+        }
+        textarea:focus{
+            outline: none;
+        }
+    </style>
+</head>
+<body>
+    <center>
+    <div class="main">
+    <div class="nav">
+<button id="bold" onclick="bold()">B</button>
+<button id="italic" onclick="italic()">I</button>
+<button id="u" onclick="ul()">U</button>
+<button id="o" onclick="lt()">LT</button>
+<button id="left" onclick="tl()">T-Left</button>
+<button id="center" onclick="tc()">T-Center</button>
+<button id="right" onclick="tr()">T-Right</button>
+<input type="color" name="" id="color" value="color" onclick="fc()">
+<select name="" id="size" onclick="fs()">
+    <option value="10px">2</option>
+    <option value="12px">4</option>
+    <option value="14px">6</option>
+    <option value="16px">8</option>
+    <option value="18px">10</option>
+    <option value="20px">12</option>
+    <option value="22px">14</option>
+    <option value="24px">16</option>
+    <option value="26px">18</option>
+    <option value="28px">20</option>
+</select>
+<select name="" id="font" onclick="ff()">
+    <option value="Arial">Arial</option>
+    <option value="Sans-Serif">Sans-Serif</option>
+    <option value="Monospace">Monospace</option>
+    <option value="Impact">Impact</option>
+    <option value="Times New Roman">Times New Roman</option>
+    <option value="Fantasy">Fantasy</option>
+</select>
+    </div>
+        <textarea name="" id="edit" cols="75" rows="20">
+        </textarea>
+    </div>
+</center>
+
+<script>
+    var edit = document.getElementById("edit");
+    var flag = true;
+function bold(){
+    if (flag === true) {
+        edit.style.fontWeight = 'bold'
+        flag = false
+    } else{
+        edit.style.fontWeight = 'normal'
+        flag = true
+    }
+}
+
+function italic(){
+    if (flag === true) {
+        edit.style.fontStyle = 'italic'
+        flag = false
+    } else{
+        edit.style.fontStyle = 'none'
+        flag = true
+    }
+}
+
+function ul(){
+    if (flag === true) {
+        edit.style.textDecoration = 'underline'
+        flag = false
+    } else{
+        edit.style.textDecoration = 'none'
+        flag = true
+    }
+}
+
+function lt(){
+    if (flag === true) {
+        edit.style.textDecoration = 'line-through'
+        flag = false
+    } else{
+        edit.style.textDecoration = 'none'
+        flag = true
+    }
+}
+
+function tl(){
+    if (flag === true) {
+        edit.style.textAlign = 'left'
+        flag = false
+    } else{
+        edit.style.textAlign = 'left'
+        flag = true
+    }
+}
+
+function tc(){
+    if (flag === true) {
+        edit.style.textAlign = 'center'
+        flag = false
+    } else{
+        edit.style.textAlign = 'left'
+        flag = true
+    }
+}
+
+function tr(){
+    if (flag === true) {
+        edit.style.textAlign = 'right'
+        flag = false
+    } else{
+        edit.style.textAlign = 'left'
+        flag = true
+    }
+}
+
+function fc(){   
+    var color = document.getElementById("color");
+    edit.style.color = color.value;
+}
+
+function fs(){   
+    var size = document.getElementById("size");
+    edit.style.fontSize = size.value;
+}
+
+function ff(){   
+    var tf = document.getElementById("font");
+    edit.style.fontFamily = tf.value;
+}
+</script>
+</body>
+</html>
